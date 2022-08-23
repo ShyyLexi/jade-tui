@@ -182,7 +182,7 @@ else
 		\"desktop\": \"${desktop}\",
 		\"timeshift\": ${enable_timeshift},
 		\"extra_packages\": [
-            "fish"
+            \"fish\"
         ],
 		\"flatpak\": ${enable_flatpak},
 		\"zramd\": ${enable_zramd},
