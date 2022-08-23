@@ -154,5 +154,5 @@ if [[ $CONTINUE != "true" ]]; then
 	echo "Exiting. Have a good day!"
 	exit
 else
-	jade config config.json
+	sudo jade config config.json
 fi
