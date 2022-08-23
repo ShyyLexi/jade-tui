@@ -105,7 +105,8 @@ else
 		\"partition\": {
 			\"device\": \"${disk}\",
 			\"mode\": \"auto\",
-			\"efi\": true
+			\"efi\": true,
+			\"partitions\": [],
 		},
 		\"bootloader\": {
 			\"type\": \"grub-efi\",
@@ -126,17 +127,24 @@ else
 			{
 				\"name\": \"${username}\",
 				\"password\": \"${password}\",
-				\"hasroot\": true
+				\"hasroot\": true,
+				\"shell\": \"zsh\"
 			}
 		],
 		\"rootpass\": \"${root_password}\",
 		\"desktop\": \"${desktop}\",
 		\"timeshift\": ${enable_timeshift},
-		\"extra_packages\": [
-			\"firefox\",
-			\"vim\",
-			\"git\"
-		]
+		\"extra_packages\": [],
+		\"flatpak\": True,
+		\"zramd\": true,
+		\"unakite\" {
+			\"enable\": False,
+			\"root\": \"/dev/null\",
+			\"oldroot\": \"${disk}\",
+			\"efidir\": \"/dev/null\",
+			\"bootdev\": \"/dev/null\"
+		},
+		\"kernel\": \"linux\"
 	}" > config.json
 fi
 
