@@ -70,7 +70,6 @@ gum confirm "$(gum style --border normal --margin '1' --padding '1 2' --border-f
 if [[ $different_root_password != "true" ]]; then
 	echo "same password as user"
 	root_password=${password}
-    crypt_root_password=${crypt_password}
 else
 	root_matches="false"
 	root_passwrong="false"
@@ -91,9 +90,9 @@ else
 		else
 			root_passwrong="true"
 		fi
-        crypt_root_password=$(openssl passwd -crypt ${root_password})
 	done
 fi
+crypt_root_password=$(openssl passwd -crypt ${root_password})
 
 clear
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Please enter a hostname"
