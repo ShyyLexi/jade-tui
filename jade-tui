@@ -140,7 +140,7 @@ fi
 
 clear
 CONTINUE=false
-gum confirm "$(gum style --border normal --margin '1' --padding '1 2' --border-foreground 212 "Summary, is this correct?" "" "keymap: ${keymap}" "timezone: ${timezone}" "locale: ${locale}" "username: ${username}" "password: ${password}" "Default shell: ${shell}" "root-password: ${root_password}" "hostname: ${hostname}" "disk: ${disk}" "desktop: ${desktop}" "ipv6: ${enable_ipv6}" "timeshift: ${enable_timeshift}" "enable zramd: ${enable_zramd}" "enable flatpak: ${enable_flatpak}" "efi: ${is_efi}")" && CONTINUE=true
+gum confirm "$(gum style --border normal --margin '1' --padding '1 2' --border-foreground 212 "Summary, is this correct?" "" "keymap: ${keymap}" "timezone: ${timezone}" "locale: ${locale}" "username: ${username}" "password: ${password}" "Default shell: ${shell}" "root-password: ${root_password}" "hostname: ${hostname}" "disk: ${disk}" "desktop: ${desktop}" "ipv6: ${enable_ipv6}" "timeshift: ${enable_timeshift}" "enable zramd: ${enable_zramd}" "enable flatpak: ${enable_flatpak}" "efi: ${is_uefi}")" && CONTINUE=true
 if [[ $CONTINUE != "true" ]]; then
 	echo "Exiting. Have a good day!"
 	exit
