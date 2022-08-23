@@ -37,6 +37,11 @@ clear
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Please enter your username"
 username=$(gum input --placeholder "Please enter your username")
 echo "username: $username"
+
+clear
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Select a default shell"
+shell=$(gum choose --limit 1 fish zsh bash)
+
 matches="false"
 passwrong="false"
 while [[ "$matches" == "false" ]]; do
@@ -60,15 +65,12 @@ done
 crypt_password=$(openssl passwd -crypt ${password})
 
 clear
-gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Select a default shell"
-shell=$(gum choose --limit 1 fish zsh bash)
-
-clear
 different_root_password=true
 gum confirm "$(gum style --border normal --margin '1' --padding '1 2' --border-foreground 212 'Use same password for root?')" && different_root_password=false
 if [[ $different_root_password != "true" ]]; then
 	echo "same password as user"
 	root_password=${password}
+    crypt_root_password=${crypt_password}
 else
 	root_matches="false"
 	root_passwrong="false"
@@ -89,9 +91,9 @@ else
 		else
 			root_passwrong="true"
 		fi
+        crypt_root_password=$(openssl passwd -crypt ${root_password})
 	done
 fi
-crypt_root_password=$(openssl passwd -crypt ${root_password})
 
 clear
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Please enter a hostname"
