@@ -106,7 +106,7 @@ else
 			\"device\": \"${disk}\",
 			\"mode\": \"Auto\",
 			\"efi\": true,
-			\"partitions\": [],
+			\"partitions\": []
 		},
 		\"bootloader\": {
 			\"type\": \"grub-efi\",
@@ -135,10 +135,10 @@ else
 		\"desktop\": \"${desktop}\",
 		\"timeshift\": ${enable_timeshift},
 		\"extra_packages\": [],
-		\"flatpak\": True,
+		\"flatpak\": true,
 		\"zramd\": true,
-		\"unakite\" {
-			\"enable\": False,
+		\"unakite\": {
+			\"enable\": false,
 			\"root\": \"/dev/null\",
 			\"oldroot\": \"${disk}\",
 			\"efidir\": \"/dev/null\",
