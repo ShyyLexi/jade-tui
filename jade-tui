@@ -145,9 +145,7 @@ if [[ $CONTINUE != "true" ]]; then
 	echo "Exiting. Have a good day!"
 	exit
 else
-    if [[ $(ls | grep "config.json") ]]; then
-        rm config.json
-    fi
+    rm config.json
 	echo "{
 		\"partition\": {
 			\"device\": \"${disk}\",
@@ -201,5 +199,5 @@ if [[ $CONTINUE != "true" ]]; then
 	echo "Exiting. Have a good day!"
 	exit
 else
-	# sudo jade config config.json
+	sudo jade config config.json
 fi
