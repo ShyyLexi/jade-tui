@@ -99,7 +99,7 @@ hostname=$(gum input --placeholder "Please enter a hostname")
 
 clear
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Please select the disk to install to" "$(gum style --foreground 212 'WARNING: This will erease the whole disk')"
-disk=$(lsblk -pdo name | grep -v zram | grep -v NAME | grep -v loop | grep -v sr | gum choose --limit 1)
+disk_dev=$(lsblk -pdo name | grep -v zram | grep -v NAME | grep -v loop | grep -v sr | gum choose --limit 1)
 echo "disk: ${disk}"
 disk=$(echo ${disk} | awk '{ print substr ($0, 6 ) }')
 
@@ -135,7 +135,7 @@ if [[ $is_uefi == "true" ]]; then
 	grub_location="/boot/efi"
 else
 	grub_type="grub-legacy"
-	grub_location="${disk}"
+	grub_location="${disk_dev}"
 fi
 
 clear
